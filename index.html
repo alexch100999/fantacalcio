@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Listone Fantacalcio 2026/27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Franklin:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-title">
+      <span class="eyebrow">Stagione 2026/27</span>
+      <h1>Il Listone</h1>
+      <p class="tagline">Quotazioni, statistiche reali e assistente d'asta per il tuo Fantacalcio</p>
+    </div>
+    <div class="masthead-meta">
+      <div class="stat-chip">
+        <span class="stat-chip-num" id="chip-total">—</span>
+        <span class="stat-chip-label">giocatori</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-chip-num" id="chip-stats">—</span>
+        <span class="stat-chip-label">con FM reale</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-chip-num" id="chip-free">—</span>
+        <span class="stat-chip-label">ancora liberi</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" id="role-tabs">
+  <button class="tab tab-p active" data-role="P">Portieri</button>
+  <button class="tab tab-d" data-role="D">Difensori</button>
+  <button class="tab tab-c" data-role="C">Centrocampisti</button>
+  <button class="tab tab-a" data-role="A">Attaccanti</button>
+  <button class="tab tab-x" data-role="COMPARE">Confronto</button>
+</nav>
+
+<main class="container">
+
+  <!-- ===== VISTA RUOLO ===== -->
+  <section id="view-role">
+    <div class="toolbar">
+      <input type="search" id="search-box" placeholder="Cerca giocatore o squadra…" autocomplete="off">
+      <div class="toolbar-right">
+        <label class="toggle">
+          <input type="checkbox" id="only-free">
+          <span>Solo liberi</span>
+        </label>
+        <button id="reset-stato" class="btn-ghost" title="Azzera tutte le marcature Libero/Preso">Nuova asta ↺</button>
+      </div>
+    </div>
+
+    <div class="layout-grid">
+      <div class="table-wrap">
+        <table id="players-table">
+          <thead id="players-thead"></thead>
+          <tbody id="players-tbody"></tbody>
+        </table>
+      </div>
+
+      <aside class="suggeriti">
+        <h2>Migliori liberi <span id="suggeriti-role-label"></span></h2>
+        <p class="suggeriti-note">Ordinati per FVM. Si aggiorna da solo quando marchi un giocatore.</p>
+        <ol id="suggeriti-list" class="suggeriti-list"></ol>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===== VISTA CONFRONTO ===== -->
+  <section id="view-compare" class="hidden">
+    <div class="compare-pickers">
+      <div class="picker">
+        <label for="pick-a">Giocatore A</label>
+        <input type="text" id="pick-a" list="players-datalist" placeholder="Cerca giocatore…" autocomplete="off">
+      </div>
+      <div class="vs">VS</div>
+      <div class="picker">
+        <label for="pick-b">Giocatore B</label>
+        <input type="text" id="pick-b" list="players-datalist" placeholder="Cerca giocatore…" autocomplete="off">
+      </div>
+    </div>
+    <datalist id="players-datalist"></datalist>
+
+    <div id="compare-result" class="compare-result"></div>
+  </section>
+
+  <footer class="foot-note">
+    <p><strong>Nota sui dati:</strong> quotazioni e FVM dal listone ufficiale 2026/27. Le statistiche reali
+      (MV, FM, gol, assist, ecc.) coprono i giocatori di prima fascia raccolti da fantacalcio.it — per gli altri
+      viene mostrato solo il FVM. Lo stato Libero/Preso è salvato solo nel tuo browser (nessun server, nessun
+      account): usa lo stesso browser durante tutta l'asta.</p>
+  </footer>
+
+</main>
+
+<script src="js/app.js"></script>
+</body>
+</html>
