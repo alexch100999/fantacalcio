@@ -282,6 +282,25 @@ tbody tr.is-taken td { background: var(--red-soft); opacity: 0.75; }
   cursor: help;
 }
 
+.nascosto-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  margin-left: 0.2rem;
+  cursor: help;
+}
+
+.penalizzato-badge {
+  display: inline-block;
+  color: #B8860B;
+  font-size: 0.8rem;
+  margin-left: 0.2rem;
+  cursor: help;
+}
+
+.motivo-penalizzato {
+  color: var(--red);
+}
+
 .stato-select {
   font-family: var(--font-body);
   font-size: 0.75rem;
@@ -429,11 +448,28 @@ tbody tr.is-taken td { background: var(--red-soft); opacity: 0.75; }
 .star-rating { color: var(--gold); letter-spacing: 0.05em; }
 .punti-chiave-list {
   margin: 0.4rem 0 0;
-  padding-left: 1.2rem;
+  padding-left: 0;
+  list-style: none;
   font-size: 0.85rem;
-  color: var(--ink-soft);
 }
-.punti-chiave-list li { margin-bottom: 0.2rem; }
+.punti-chiave-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  margin-bottom: 0.3rem;
+  padding: 0.15rem 0;
+}
+.punto-icona {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  width: 1rem;
+  flex-shrink: 0;
+  text-align: center;
+}
+.punto-positivo { color: var(--green); }
+.punto-positivo .punto-icona { color: var(--green); }
+.punto-negativo { color: var(--red); }
+.punto-negativo .punto-icona { color: var(--red); }
 
 .formazione-list { list-style: none; margin: 0; padding: 0; }
 .formazione-riga {

@@ -6,10 +6,22 @@
   "attacco": 4.0,
   "difesa": 4.0,
   "puntiChiave": [
-   "Valorizzazione esterni d'attacco",
-   "Solidità difensiva",
-   "Scarso impiego del turnover",
-   "Scarsa libertà ai terzini"
+   {
+    "testo": "Valorizzazione esterni d'attacco",
+    "positivo": true
+   },
+   {
+    "testo": "Solidità difensiva",
+    "positivo": true
+   },
+   {
+    "testo": "Scarso impiego del turnover",
+    "positivo": false
+   },
+   {
+    "testo": "Scarsa libertà ai terzini",
+    "positivo": false
+   }
   ],
   "probabileFormazione": [
    "Carnesecchi",
@@ -43,6 +55,16 @@
     "nome": "Samardzic",
     "motivo": "Sarri può rigenerarlo"
    }
+  ],
+  "giocatoriPenalizzati": [
+   {
+    "nome": "De Roon",
+    "motivo": "Con Sarri posizionamento più arretrato"
+   },
+   {
+    "nome": "Kossounou",
+    "motivo": "Parte indietro nelle gerarchie del mister"
+   }
   ]
  },
  {
@@ -52,9 +74,18 @@
   "attacco": 4.0,
   "difesa": 3.5,
   "puntiChiave": [
-   "Valorizzazione esterni d'attacco",
-   "Adattamento Serie A",
-   "Sistema di gioco molto elaborato"
+   {
+    "testo": "Valorizzazione esterni d'attacco",
+    "positivo": true
+   },
+   {
+    "testo": "Adattamento Serie A",
+    "positivo": false
+   },
+   {
+    "testo": "Sistema di gioco molto elaborato",
+    "positivo": false
+   }
   ],
   "probabileFormazione": [
    "Skorupski",
@@ -84,6 +115,16 @@
     "nome": "Bernardeschi",
     "motivo": "Duttile tatticamente, usato in più ruoli"
    }
+  ],
+  "giocatoriPenalizzati": [
+   {
+    "nome": "Dallinga",
+    "motivo": "Parte indietro nelle gerarchie"
+   },
+   {
+    "nome": "Lucumì",
+    "motivo": "Potrebbe soffrire un sistema di gioco elaborato"
+   }
   ]
  },
  {
@@ -93,9 +134,18 @@
   "attacco": 3.5,
   "difesa": 3.5,
   "puntiChiave": [
-   "Valorizzazione giovani",
-   "Solidità difensiva",
-   "Attacco poco prolifico"
+   {
+    "testo": "Valorizzazione giovani",
+    "positivo": true
+   },
+   {
+    "testo": "Solidità difensiva",
+    "positivo": true
+   },
+   {
+    "testo": "Attacco poco prolifico",
+    "positivo": false
+   }
   ],
   "probabileFormazione": [
    "Caprile",
@@ -125,6 +175,12 @@
     "nome": "Romano",
     "motivo": "Forte nelle transizioni offensive"
    }
+  ],
+  "giocatoriPenalizzati": [
+   {
+    "nome": "Zappa",
+    "motivo": "Sistema molto difensivo potrebbe penalizzarlo"
+   }
   ]
  },
  {
@@ -134,9 +190,18 @@
   "attacco": 5.0,
   "difesa": 4.5,
   "puntiChiave": [
-   "Valorizzazione giovani",
-   "Solidità difensiva",
-   "Manovra fluida in fase offensiva"
+   {
+    "testo": "Valorizzazione giovani",
+    "positivo": true
+   },
+   {
+    "testo": "Solidità difensiva",
+    "positivo": true
+   },
+   {
+    "testo": "Manovra fluida in fase offensiva",
+    "positivo": true
+   }
   ],
   "probabileFormazione": [
    "Butez",
@@ -166,6 +231,16 @@
     "nome": "Diao",
     "motivo": "Abile in fase di finalizzazione"
    }
+  ],
+  "giocatoriPenalizzati": [
+   {
+    "nome": "Morata",
+    "motivo": "Non ancora integrato al meglio nel sistema di gioco"
+   },
+   {
+    "nome": "Valle",
+    "motivo": "Ruolo in cui Fabregas fa molto turnover"
+   }
   ]
  },
  {
@@ -175,10 +250,22 @@
   "attacco": 3.0,
   "difesa": 3.0,
   "puntiChiave": [
-   "Valorizzazione esterni d'attacco",
-   "Importanza mezzali",
-   "Difesa poco solida",
-   "Fatica contro squadre chiuse"
+   {
+    "testo": "Valorizzazione esterni d'attacco",
+    "positivo": true
+   },
+   {
+    "testo": "Importanza mezzali",
+    "positivo": true
+   },
+   {
+    "testo": "Difesa poco solida",
+    "positivo": false
+   },
+   {
+    "testo": "Fatica contro squadre chiuse",
+    "positivo": false
+   }
   ],
   "probabileFormazione": [
    "De Gea",
@@ -212,6 +299,12 @@
     "nome": "Ndour",
     "motivo": "Giocatore fisico che può entrare facilmente nelle rotazioni"
    }
+  ],
+  "giocatoriPenalizzati": [
+   {
+    "nome": "Ranieri L.",
+    "motivo": "Può soffrire il sistema offensivo del mister; titolarità non garantita"
+   }
   ]
  },
  {
@@ -221,9 +314,18 @@
   "attacco": 3.5,
   "difesa": 2.0,
   "puntiChiave": [
-   "Importanza esterni d'attacco",
-   "Difensori potrebbero soffrire l'adattamento in Serie A",
-   "Sfrutta bene i calci piazzati"
+   {
+    "testo": "Importanza esterni d'attacco",
+    "positivo": true
+   },
+   {
+    "testo": "Difensori potrebbero soffrire l'adattamento in Serie A",
+    "positivo": false
+   },
+   {
+    "testo": "Sfrutta bene i calci piazzati",
+    "positivo": true
+   }
   ],
   "probabileFormazione": [
    "Palmisani",
@@ -253,6 +355,12 @@
     "nome": "Zerbin",
     "motivo": "Duttilità tattica, fisico ma anche molto dinamico"
    }
+  ],
+  "giocatoriPenalizzati": [
+   {
+    "nome": "Monterisi",
+    "motivo": "Propensione al malus; adattamento in Serie A"
+   }
   ]
  },
  {
@@ -262,9 +370,18 @@
   "attacco": 3.0,
   "difesa": 3.0,
   "puntiChiave": [
-   "Compattezza difensiva",
-   "Valorizzazione esterni bassi",
-   "Difficoltà dal punto di vista realizzativo"
+   {
+    "testo": "Compattezza difensiva",
+    "positivo": true
+   },
+   {
+    "testo": "Valorizzazione esterni bassi",
+    "positivo": true
+   },
+   {
+    "testo": "Difficoltà dal punto di vista realizzativo",
+    "positivo": false
+   }
   ],
   "probabileFormazione": [
    "Bijlow",
@@ -294,6 +411,12 @@
     "nome": "Marcandalli",
     "motivo": "Caratteristiche compatibili con il sistema difensivo"
    }
+  ],
+  "giocatoriPenalizzati": [
+   {
+    "nome": "Martin",
+    "motivo": "Titolarità non garantita"
+   }
   ]
  },
  {
@@ -303,9 +426,18 @@
   "attacco": 5.0,
   "difesa": 5.0,
   "puntiChiave": [
-   "Valorizzazione esterni",
-   "Transizione offensiva veloce e coordinata",
-   "Fase difensiva ordinata e organizzata"
+   {
+    "testo": "Valorizzazione esterni",
+    "positivo": true
+   },
+   {
+    "testo": "Transizione offensiva veloce e coordinata",
+    "positivo": true
+   },
+   {
+    "testo": "Fase difensiva ordinata e organizzata",
+    "positivo": true
+   }
   ],
   "probabileFormazione": [
    "Martinez Jo.",
@@ -339,6 +471,16 @@
     "nome": "Diouf",
     "motivo": "Esterno offensivo da bonus (indisciplinato nella fase difensiva)"
    }
+  ],
+  "giocatoriPenalizzati": [
+   {
+    "nome": "Frattesi",
+    "motivo": "Non integrato al meglio nel gioco di Chivu"
+   },
+   {
+    "nome": "Luis Henrique",
+    "motivo": "Indietro nelle gerarchie"
+   }
   ]
  },
  {
@@ -348,9 +490,18 @@
   "attacco": 4.5,
   "difesa": 4.5,
   "puntiChiave": [
-   "Valorizzazione esterni offensivi",
-   "Solidità difensiva",
-   "Interpreti inadatti a un giro palla veloce"
+   {
+    "testo": "Valorizzazione esterni offensivi",
+    "positivo": true
+   },
+   {
+    "testo": "Solidità difensiva",
+    "positivo": true
+   },
+   {
+    "testo": "Interpreti inadatti a un giro palla veloce",
+    "positivo": false
+   }
   ],
   "probabileFormazione": [
    "Di Gregorio",
@@ -384,6 +535,16 @@
     "nome": "Kelly L.",
     "motivo": "Rendimento buono e continuo in termini di voti"
    }
+  ],
+  "giocatoriPenalizzati": [
+   {
+    "nome": "Koopmeiners",
+    "motivo": "Posizionamento molto arretrato"
+   },
+   {
+    "nome": "Zhegrova",
+    "motivo": "Minutaggio molto ridotto"
+   }
   ]
  },
  {
@@ -393,9 +554,18 @@
   "attacco": 4.5,
   "difesa": 4.0,
   "puntiChiave": [
-   "Punta centrale riferimento principale",
-   "Gioco aggressivo, cartellini e falli elevati",
-   "Esterni di difesa propositivi"
+   {
+    "testo": "Punta centrale riferimento principale",
+    "positivo": true
+   },
+   {
+    "testo": "Gioco aggressivo, cartellini e falli elevati",
+    "positivo": false
+   },
+   {
+    "testo": "Esterni di difesa propositivi",
+    "positivo": true
+   }
   ],
   "probabileFormazione": [
    "Mandas",
@@ -425,6 +595,12 @@
     "nome": "Pedraza",
     "motivo": "Gattuso richiede molta spinta dai terzini"
    }
+  ],
+  "giocatoriPenalizzati": [
+   {
+    "nome": "Rovella",
+    "motivo": "Propensione a cartellini nel gioco di Gattuso"
+   }
   ]
  },
  {
@@ -434,9 +610,18 @@
   "attacco": 2.0,
   "difesa": 2.5,
   "puntiChiave": [
-   "Valorizzazione esterni d'attacco",
-   "Squadra poco prolifica per bonus",
-   "Difesa aggressiva e propensa ai cartellini"
+   {
+    "testo": "Valorizzazione esterni d'attacco",
+    "positivo": true
+   },
+   {
+    "testo": "Squadra poco prolifica per bonus",
+    "positivo": false
+   },
+   {
+    "testo": "Difesa aggressiva e propensa ai cartellini",
+    "positivo": false
+   }
   ],
   "probabileFormazione": [
    "Falcone",
@@ -470,6 +655,12 @@
     "nome": "Gandelman",
     "motivo": "Può giocare in diverse posizioni del fronte offensivo"
    }
+  ],
+  "giocatoriPenalizzati": [
+   {
+    "nome": "Fofana Sa.",
+    "motivo": "Titolarità non garantita"
+   }
   ]
  },
  {
@@ -479,9 +670,18 @@
   "attacco": 4.5,
   "difesa": 4.5,
   "puntiChiave": [
-   "Trequartisti ed esterni mobili in fase offensiva",
-   "Rigidità del sistema di gioco",
-   "Dipendenza da un attaccante fisico"
+   {
+    "testo": "Trequartisti ed esterni mobili in fase offensiva",
+    "positivo": true
+   },
+   {
+    "testo": "Rigidità del sistema di gioco",
+    "positivo": false
+   },
+   {
+    "testo": "Dipendenza da un attaccante fisico",
+    "positivo": false
+   }
   ],
   "probabileFormazione": [
    "Maignan",
@@ -511,6 +711,16 @@
     "nome": "Nkunku",
     "motivo": "Adatto al gioco di Amorim"
    }
+  ],
+  "giocatoriPenalizzati": [
+   {
+    "nome": "Tomori",
+    "motivo": "Non adatto ai ruoli di impostazione richiesti dal mister"
+   },
+   {
+    "nome": "Ricci S.",
+    "motivo": "Deve coprire molto campo nel gioco di Amorim"
+   }
   ]
  },
  {
@@ -520,9 +730,18 @@
   "attacco": 2.0,
   "difesa": 2.0,
   "puntiChiave": [
-   "Importanza esterni",
-   "Marcatura a tutto campo",
-   "Gioco molto aggressivo"
+   {
+    "testo": "Importanza esterni",
+    "positivo": true
+   },
+   {
+    "testo": "Marcatura a tutto campo",
+    "positivo": true
+   },
+   {
+    "testo": "Gioco molto aggressivo",
+    "positivo": false
+   }
   ],
   "probabileFormazione": [
    "Thiam",
@@ -552,6 +771,12 @@
     "nome": "Thiam",
     "motivo": "Buon rapporto parate-tiri"
    }
+  ],
+  "giocatoriPenalizzati": [
+   {
+    "nome": "Colpani",
+    "motivo": "Giocatore discontinuo"
+   }
   ]
  },
  {
@@ -561,9 +786,18 @@
   "attacco": 4.5,
   "difesa": 4.5,
   "puntiChiave": [
-   "Solidità difensiva",
-   "Palle inattive decisive",
-   "Baricentro squadra basso"
+   {
+    "testo": "Solidità difensiva",
+    "positivo": true
+   },
+   {
+    "testo": "Palle inattive decisive",
+    "positivo": true
+   },
+   {
+    "testo": "Baricentro squadra basso",
+    "positivo": false
+   }
   ],
   "probabileFormazione": [
    "Meret",
@@ -597,6 +831,12 @@
     "nome": "Olivera",
     "motivo": "Jolly difensivo"
    }
+  ],
+  "giocatoriPenalizzati": [
+   {
+    "nome": "Gilmour",
+    "motivo": "Indietro nelle gerarchie"
+   }
   ]
  },
  {
@@ -606,9 +846,18 @@
   "attacco": 2.0,
   "difesa": 2.5,
   "puntiChiave": [
-   "Solidità difensiva",
-   "Molti cross verso la punta centrale",
-   "Poca efficacia offensiva"
+   {
+    "testo": "Solidità difensiva",
+    "positivo": true
+   },
+   {
+    "testo": "Molti cross verso la punta centrale",
+    "positivo": true
+   },
+   {
+    "testo": "Poca efficacia offensiva",
+    "positivo": false
+   }
   ],
   "probabileFormazione": [
    "Corvi",
@@ -638,6 +887,12 @@
     "nome": "Delprato",
     "motivo": "Coinvolto nella fase offensiva"
    }
+  ],
+  "giocatoriPenalizzati": [
+   {
+    "nome": "Sorensen O.",
+    "motivo": "Parte indietro nelle gerarchie"
+   }
   ]
  },
  {
@@ -647,9 +902,18 @@
   "attacco": 4.5,
   "difesa": 5.0,
   "puntiChiave": [
-   "Esterni molto offensivi",
-   "Attacco molto prolifico",
-   "Marcatura a uomo aggressiva"
+   {
+    "testo": "Esterni molto offensivi",
+    "positivo": true
+   },
+   {
+    "testo": "Attacco molto prolifico",
+    "positivo": true
+   },
+   {
+    "testo": "Marcatura a uomo aggressiva",
+    "positivo": true
+   }
   ],
   "probabileFormazione": [
    "Svilar",
@@ -679,6 +943,12 @@
     "nome": "Cristante",
     "motivo": "Punto fermo del centrocampo di Gasperini"
    }
+  ],
+  "giocatoriPenalizzati": [
+   {
+    "nome": "Vaz",
+    "motivo": "Molta concorrenza per il suo ruolo"
+   }
   ]
  },
  {
@@ -688,9 +958,18 @@
   "attacco": 3.0,
   "difesa": 3.0,
   "puntiChiave": [
-   "Costruzione dal basso",
-   "Fluidità tattica tra i moduli",
-   "Buona organizzazione del fraseggio in mezzo al campo"
+   {
+    "testo": "Costruzione dal basso",
+    "positivo": true
+   },
+   {
+    "testo": "Fluidità tattica tra i moduli",
+    "positivo": true
+   },
+   {
+    "testo": "Buona organizzazione del fraseggio in mezzo al campo",
+    "positivo": true
+   }
   ],
   "probabileFormazione": [
    "Muric",
@@ -720,6 +999,16 @@
     "nome": "Matic",
     "motivo": "Costanza nelle rotazioni e nel rendimento"
    }
+  ],
+  "giocatoriPenalizzati": [
+   {
+    "nome": "Muric",
+    "motivo": "Può soffrire la costruzione dal basso"
+   },
+   {
+    "nome": "Walukiewicz",
+    "motivo": "Può soffrire la costruzione dal basso"
+   }
   ]
  },
  {
@@ -729,9 +1018,18 @@
   "attacco": 3.5,
   "difesa": 2.0,
   "puntiChiave": [
-   "Trequartisti mobili",
-   "Pressing a tutto campo",
-   "Costruzione dal basso e palleggio"
+   {
+    "testo": "Trequartisti mobili",
+    "positivo": true
+   },
+   {
+    "testo": "Pressing a tutto campo",
+    "positivo": true
+   },
+   {
+    "testo": "Costruzione dal basso e palleggio",
+    "positivo": true
+   }
   ],
   "probabileFormazione": [
    "Paleari",
@@ -761,6 +1059,12 @@
     "nome": "Oristanio",
     "motivo": "Adatto al sistema di Abate"
    }
+  ],
+  "giocatoriPenalizzati": [
+   {
+    "nome": "Biraghi",
+    "motivo": "Potrebbe soffrire la difesa alta"
+   }
   ]
  },
  {
@@ -770,9 +1074,18 @@
   "attacco": 4.0,
   "difesa": 3.0,
   "puntiChiave": [
-   "Contropiedi efficaci",
-   "Propensione al fallo tattico",
-   "Efficacia del gioco dipendente dall'atletismo dei giocatori"
+   {
+    "testo": "Contropiedi efficaci",
+    "positivo": true
+   },
+   {
+    "testo": "Propensione al fallo tattico",
+    "positivo": false
+   },
+   {
+    "testo": "Efficacia del gioco dipendente dall'atletismo dei giocatori",
+    "positivo": false
+   }
   ],
   "probabileFormazione": [
    "Okoye",
@@ -802,6 +1115,12 @@
     "nome": "Kristensen T.",
     "motivo": "Caratteristiche adatte alla difesa bassa"
    }
+  ],
+  "giocatoriPenalizzati": [
+   {
+    "nome": "Karlstrom",
+    "motivo": "Posizionamento molto arretrato"
+   }
   ]
  },
  {
@@ -811,9 +1130,18 @@
   "attacco": 3.5,
   "difesa": 2.0,
   "puntiChiave": [
-   "Gioco costante sugli esterni",
-   "Costruzione dal basso ossessiva",
-   "Gli interpreti potrebbero faticare in Serie A"
+   {
+    "testo": "Gioco costante sugli esterni",
+    "positivo": true
+   },
+   {
+    "testo": "Costruzione dal basso ossessiva",
+    "positivo": false
+   },
+   {
+    "testo": "Gli interpreti potrebbero faticare in Serie A",
+    "positivo": false
+   }
   ],
   "probabileFormazione": [
    "Stankovic F.",
@@ -845,6 +1173,12 @@
    {
     "nome": "Perez K.",
     "motivo": "Fulcro creativo del gioco di Stroppa"
+   }
+  ],
+  "giocatoriPenalizzati": [
+   {
+    "nome": "Franjic",
+    "motivo": "Utilizzato in ruoli difensivi; tanta concorrenza"
    }
   ]
  }

@@ -176,6 +176,12 @@ async function loadAllenatori() {
         p.nomeNascosto = true;
         p.motivoNascosto = nascosto.motivo;
       }
+
+      const penalizzato = (info.giocatoriPenalizzati || []).find(g => normalizeKey(g.nome) === normalizeKey(p.nome));
+      if (penalizzato) {
+        p.giocatorePenalizzato = true;
+        p.motivoPenalizzato = penalizzato.motivo;
+      }
     });
   } catch (e) {
     STATE.allenatori = [];
@@ -239,6 +245,14 @@ function nascostoBadge(p) {
   const motivo = p.motivoNascosto ? ` — ${p.motivoNascosto}` : '';
   const titolo = `Nome nascosto (alto potenziale)${motivo}`;
   return ` <span class="nascosto-badge" title="${titolo.replace(/"/g, '&quot;')}">💎</span>`;
+}
+
+// ---------- Badge giocatore penalizzato dalle idee dell'allenatore ----------
+function penalizzatoBadge(p) {
+  if (!p.giocatorePenalizzato) return '';
+  const motivo = p.motivoPenalizzato ? ` — ${p.motivoPenalizzato}` : '';
+  const titolo = `Potrebbe risentire delle idee dell'allenatore${motivo}`;
+  return ` <span class="penalizzato-badge" title="${titolo.replace(/"/g, '&quot;')}">⚠</span>`;
 }
 
 // ---------- Rendering tabella ruolo ----------
@@ -321,7 +335,7 @@ function renderTableBody() {
         const a = p.rigSegn, b = p.rigTir;
         td.innerHTML = (a === null || a === undefined) ? fmt(null) : `${a}/${b}`;
       } else if (c.key === 'nome') {
-        td.innerHTML = fmt(p[c.key], c.decimals) + chiaveBadge(p) + nascostoBadge(p) + amichevoliBadge(p);
+        td.innerHTML = fmt(p[c.key], c.decimals) + chiaveBadge(p) + nascostoBadge(p) + penalizzatoBadge(p) + amichevoliBadge(p);
       } else {
         td.innerHTML = fmt(p[c.key], c.decimals);
       }
@@ -357,8 +371,9 @@ const ROLE_LABELS = { P: 'portieri', D: 'difensori', C: 'centrocampisti', A: 'at
 // ---------- Punteggio suggerimento (FVM + bonus potenziale) ----------
 function punteggioSuggerimento(p) {
   let score = p.fvm;
-  if (p.giocatoreChiave) score *= 1.15;   // giocatore segnalato come chiave nel modulo del suo allenatore
-  if (p.nomeNascosto) score *= 1.08;      // nome ad alto potenziale secondo l'analisi tattica
+  if (p.giocatoreChiave) score *= 1.15;     // giocatore segnalato come chiave nel modulo del suo allenatore
+  if (p.nomeNascosto) score *= 1.08;        // nome ad alto potenziale secondo l'analisi tattica
+  if (p.giocatorePenalizzato) score *= 0.88; // potrebbe risentire delle idee dell'allenatore
   return score;
 }
 
@@ -377,7 +392,7 @@ function renderSuggeriti() {
   }
   free.forEach(p => {
     const li = document.createElement('li');
-    li.innerHTML = `<span class="sugg-name">${p.nome}${chiaveBadge(p)}${nascostoBadge(p)} <small style="color:var(--ink-faint)">${p.squadra}</small></span>
+    li.innerHTML = `<span class="sugg-name">${p.nome}${chiaveBadge(p)}${nascostoBadge(p)}${penalizzatoBadge(p)} <small style="color:var(--ink-faint)">${p.squadra}</small></span>
                      <span class="sugg-fvm">${p.fvm}</span>`;
     list.appendChild(li);
   });
@@ -563,13 +578,20 @@ function renderFormazione(squadraSelezionata) {
       <span class="formazione-squadra-mini">${p.qtA} Qt.A</span>
     </li>`).join('');
 
-  const puntiChiaveHtml = (info.puntiChiave || []).map(pc => `<li>${pc}</li>`).join('');
+  const puntiChiaveHtml = (info.puntiChiave || []).map(pc => {
+    const cls = pc.positivo === true ? 'punto-positivo' : pc.positivo === false ? 'punto-negativo' : '';
+    const icona = pc.positivo === true ? '＋' : pc.positivo === false ? '－' : '•';
+    return `<li class="${cls}"><span class="punto-icona">${icona}</span>${pc.testo}</li>`;
+  }).join('');
 
   const chiaveHtml = (info.giocatoriChiave || []).map(g => `
     <div class="motivo-riga"><strong>${g.nome}</strong> — ${g.motivo}</div>`).join('') || '<p class="coppie-note">Nessuno segnalato.</p>';
 
   const nascostiHtml = (info.nomiNascosti || []).map(g => `
     <div class="motivo-riga">💎 <strong>${g.nome}</strong> — ${g.motivo}</div>`).join('') || '<p class="coppie-note">Nessuno segnalato.</p>';
+
+  const penalizzatiHtml = (info.giocatoriPenalizzati || []).map(g => `
+    <div class="motivo-riga motivo-penalizzato">⚠ <strong>${g.nome}</strong> — ${g.motivo}</div>`).join('') || '<p class="coppie-note">Nessuno segnalato.</p>';
 
   container.innerHTML = `
     <div class="formazioni-grid">
@@ -594,6 +616,11 @@ function renderFormazione(squadraSelezionata) {
       <div class="formazioni-card">
         <h3 class="coppie-subhead">💎 Nomi nascosti (alto potenziale)</h3>
         ${nascostiHtml}
+      </div>
+
+      <div class="formazioni-card">
+        <h3 class="coppie-subhead">⚠ Giocatori penalizzati dalle idee dell'allenatore</h3>
+        ${penalizzatiHtml}
       </div>
     </div>`;
 }
@@ -631,6 +658,7 @@ const COMPARE_ROWS = [
   { key: 'modulo', label: 'Modulo', text: true },
   { key: 'giocatoreChiave', label: 'Chiave nel modulo', bool: true },
   { key: 'nomeNascosto', label: 'Nome nascosto 💎', bool: true },
+  { key: 'giocatorePenalizzato', label: 'Penalizzato dal mister ⚠', bool: true, invert: true },
   { key: 'qtA', label: 'Qt.A', lowerBetter: false },
   { key: 'fvm', label: 'FVM', better: true },
   { key: 'mv', label: 'Media voto', better: true, decimals: 2 },
@@ -647,7 +675,10 @@ const COMPARE_ROWS = [
 ];
 
 function fmtCompareVal(row, val) {
-  if (row.bool) return val ? '★ sì' : 'no';
+  if (row.bool) {
+    const icon = row.invert ? '⚠' : '★';
+    return val ? `${icon} sì` : 'no';
+  }
   if (row.text) return val || '<span class="no-data">—</span>';
   return fmt(val, row.decimals);
 }
@@ -672,8 +703,10 @@ function renderCompare() {
       bCls = !aWins ? 'win' : '';
     }
     if (r.bool && av !== bv) {
-      aCls = av ? 'win' : '';
-      bCls = bv ? 'win' : '';
+      const aGood = r.invert ? !av : av;
+      const bGood = r.invert ? !bv : bv;
+      aCls = aGood ? 'win' : '';
+      bCls = bGood ? 'win' : '';
     }
     rows += `<tr>
       <td class="label">${r.label}</td>
