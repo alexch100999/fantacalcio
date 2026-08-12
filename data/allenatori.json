@@ -1,0 +1,851 @@
+[
+ {
+  "squadra": "Atalanta",
+  "allenatore": "M. Sarri",
+  "modulo": "4-3-3",
+  "attacco": 4.0,
+  "difesa": 4.0,
+  "puntiChiave": [
+   "Valorizzazione esterni d'attacco",
+   "Solidità difensiva",
+   "Scarso impiego del turnover",
+   "Scarsa libertà ai terzini"
+  ],
+  "probabileFormazione": [
+   "Carnesecchi",
+   "Bernasconi",
+   "Kolasinac",
+   "Scalvini",
+   "Zappacosta",
+   "Ederson D.S.",
+   "Gaetano",
+   "Samardzic",
+   "Raspadori",
+   "Scamacca",
+   "De Ketelaere"
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Scalvini",
+    "motivo": "Difesa di Sarri solida"
+   },
+   {
+    "nome": "Raspadori",
+    "motivo": "Adattabile anche al centro; esterni di Sarri prolifici; rotazioni elevate nel suo ruolo"
+   },
+   {
+    "nome": "Scamacca",
+    "motivo": "Rigorista designato"
+   }
+  ],
+  "nomiNascosti": [
+   {
+    "nome": "Samardzic",
+    "motivo": "Sarri può rigenerarlo"
+   }
+  ]
+ },
+ {
+  "squadra": "Bologna",
+  "allenatore": "D. Tedesco",
+  "modulo": "4-3-3",
+  "attacco": 4.0,
+  "difesa": 3.5,
+  "puntiChiave": [
+   "Valorizzazione esterni d'attacco",
+   "Adattamento Serie A",
+   "Sistema di gioco molto elaborato"
+  ],
+  "probabileFormazione": [
+   "Skorupski",
+   "Miranda J.",
+   "Lucumì",
+   "Vitik",
+   "Zortea",
+   "Ferguson",
+   "Pobega",
+   "Bernardeschi",
+   "Rowe",
+   "Dovbyk",
+   "Orsolini"
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Rowe",
+    "motivo": "Caratteristiche in linea con gli esterni del mister; poca concorrenza"
+   },
+   {
+    "nome": "Orsolini",
+    "motivo": "Perno offensivo del gioco del mister; maggiore minutaggio rispetto all'anno scorso; rigorista designato"
+   }
+  ],
+  "nomiNascosti": [
+   {
+    "nome": "Bernardeschi",
+    "motivo": "Duttile tatticamente, usato in più ruoli"
+   }
+  ]
+ },
+ {
+  "squadra": "Cagliari",
+  "allenatore": "F. Pisacane",
+  "modulo": "4-3-3",
+  "attacco": 3.5,
+  "difesa": 3.5,
+  "puntiChiave": [
+   "Valorizzazione giovani",
+   "Solidità difensiva",
+   "Attacco poco prolifico"
+  ],
+  "probabileFormazione": [
+   "Caprile",
+   "Obert",
+   "Mina",
+   "Rodriguez Ju.",
+   "Zè Pedro",
+   "Romano",
+   "Winks",
+   "Adopo",
+   "Fazzini",
+   "Borrelli",
+   "Maldini"
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Obert",
+    "motivo": "Buoni cross anche dai piazzati; utilizzato in più posizioni nella fase difensiva"
+   },
+   {
+    "nome": "Fazzini",
+    "motivo": "Voluto fortemente da Pisacane; propensione al bonus; rigorista designato"
+   }
+  ],
+  "nomiNascosti": [
+   {
+    "nome": "Romano",
+    "motivo": "Forte nelle transizioni offensive"
+   }
+  ]
+ },
+ {
+  "squadra": "Como",
+  "allenatore": "C. Fabregas",
+  "modulo": "4-2-3-1",
+  "attacco": 5.0,
+  "difesa": 4.5,
+  "puntiChiave": [
+   "Valorizzazione giovani",
+   "Solidità difensiva",
+   "Manovra fluida in fase offensiva"
+  ],
+  "probabileFormazione": [
+   "Butez",
+   "Valle",
+   "Chalobah T.",
+   "Ramon",
+   "Couto",
+   "Da Cunha",
+   "Perrone",
+   "Baturina",
+   "Paz N.",
+   "Diao",
+   "Douvikas"
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Da Cunha",
+    "motivo": "Duttile tatticamente; rigorista designato"
+   },
+   {
+    "nome": "Douvikas",
+    "motivo": "Gioco della squadra molto offensivo; fluidità della manovra crea spazi per la punta"
+   }
+  ],
+  "nomiNascosti": [
+   {
+    "nome": "Diao",
+    "motivo": "Abile in fase di finalizzazione"
+   }
+  ]
+ },
+ {
+  "squadra": "Fiorentina",
+  "allenatore": "F. Grosso",
+  "modulo": "4-3-2-1",
+  "attacco": 3.0,
+  "difesa": 3.0,
+  "puntiChiave": [
+   "Valorizzazione esterni d'attacco",
+   "Importanza mezzali",
+   "Difesa poco solida",
+   "Fatica contro squadre chiuse"
+  ],
+  "probabileFormazione": [
+   "De Gea",
+   "Valdepenas",
+   "Viery",
+   "Dragusin",
+   "Jimenez A.",
+   "Ndour",
+   "Fagioli",
+   "Oulai",
+   "Mastantuono",
+   "Atta",
+   "Kean"
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Jimenez A.",
+    "motivo": "Duttile tatticamente; usato sia come terzino che ala offensiva"
+   },
+   {
+    "nome": "Atta",
+    "motivo": "Mezzali di grosso prolifiche; caratteristiche compatibili col gioco di Grosso"
+   },
+   {
+    "nome": "Kean",
+    "motivo": "Rigorista designato"
+   }
+  ],
+  "nomiNascosti": [
+   {
+    "nome": "Ndour",
+    "motivo": "Giocatore fisico che può entrare facilmente nelle rotazioni"
+   }
+  ]
+ },
+ {
+  "squadra": "Frosinone",
+  "allenatore": "M. Alvini",
+  "modulo": "4-3-3",
+  "attacco": 3.5,
+  "difesa": 2.0,
+  "puntiChiave": [
+   "Importanza esterni d'attacco",
+   "Difensori potrebbero soffrire l'adattamento in Serie A",
+   "Sfrutta bene i calci piazzati"
+  ],
+  "probabileFormazione": [
+   "Palmisani",
+   "Bracaglia",
+   "Monterisi",
+   "Akpoguma",
+   "Oyono A.",
+   "Koutsoupias",
+   "Calò",
+   "El Azzouzi A.",
+   "Zerbin",
+   "Raimondo",
+   "Ghedjemis"
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Ghedjemis",
+    "motivo": "Uomo chiave nel gioco del mister; buone doti di finalizzazione"
+   },
+   {
+    "nome": "Calò",
+    "motivo": "Leader della squadra; fulcro del gioco; calcia tutti i piazzati"
+   }
+  ],
+  "nomiNascosti": [
+   {
+    "nome": "Zerbin",
+    "motivo": "Duttilità tattica, fisico ma anche molto dinamico"
+   }
+  ]
+ },
+ {
+  "squadra": "Genoa",
+  "allenatore": "D. De Rossi",
+  "modulo": "3-4-2-1",
+  "attacco": 3.0,
+  "difesa": 3.0,
+  "puntiChiave": [
+   "Compattezza difensiva",
+   "Valorizzazione esterni bassi",
+   "Difficoltà dal punto di vista realizzativo"
+  ],
+  "probabileFormazione": [
+   "Bijlow",
+   "Vasquez",
+   "Ostigard",
+   "Marcandalli",
+   "Mitaj",
+   "Frendrup",
+   "Sow",
+   "Norton-Cuffy",
+   "Vitinha O.",
+   "Baldanzi",
+   "Colombo"
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Ostigard",
+    "motivo": "Sistema difensivo esalta le sue caratteristiche; prolifico nei calci piazzati"
+   },
+   {
+    "nome": "Baldanzi",
+    "motivo": "Fantasista della squadra; svaria su tutto il fronte offensivo"
+   }
+  ],
+  "nomiNascosti": [
+   {
+    "nome": "Marcandalli",
+    "motivo": "Caratteristiche compatibili con il sistema difensivo"
+   }
+  ]
+ },
+ {
+  "squadra": "Inter",
+  "allenatore": "C. Chivu",
+  "modulo": "3-5-2",
+  "attacco": 5.0,
+  "difesa": 5.0,
+  "puntiChiave": [
+   "Valorizzazione esterni",
+   "Transizione offensiva veloce e coordinata",
+   "Fase difensiva ordinata e organizzata"
+  ],
+  "probabileFormazione": [
+   "Martinez Jo.",
+   "Bastoni",
+   "Stones",
+   "Akanji",
+   "Dimarco",
+   "Barella",
+   "Calhanoglu",
+   "Zielinski",
+   "Diouf",
+   "Thuram",
+   "Martinez L."
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Martinez L.",
+    "motivo": "Bravo a giocare con tutti gli attaccanti delle rotazioni; fulcro del gioco"
+   },
+   {
+    "nome": "Dimarco",
+    "motivo": "Minutaggio elevato e costante; ruolo offensivo nel gioco di Chivu"
+   },
+   {
+    "nome": "Calhanoglu",
+    "motivo": "Rigorista designato"
+   }
+  ],
+  "nomiNascosti": [
+   {
+    "nome": "Diouf",
+    "motivo": "Esterno offensivo da bonus (indisciplinato nella fase difensiva)"
+   }
+  ]
+ },
+ {
+  "squadra": "Juventus",
+  "allenatore": "L. Spalletti",
+  "modulo": "4-2-3-1",
+  "attacco": 4.5,
+  "difesa": 4.5,
+  "puntiChiave": [
+   "Valorizzazione esterni offensivi",
+   "Solidità difensiva",
+   "Interpreti inadatti a un giro palla veloce"
+  ],
+  "probabileFormazione": [
+   "Di Gregorio",
+   "Cambiaso",
+   "Kelly L.",
+   "Bremer",
+   "Kalulu",
+   "Locatelli",
+   "Thuram K.",
+   "Yildiz",
+   "McKennie",
+   "Alajbegovic",
+   "Kolo Muani"
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Yildiz",
+    "motivo": "Riferimento del gioco offensivo; svaria su tutto il fronte"
+   },
+   {
+    "nome": "McKennie",
+    "motivo": "Prolifico negli inserimenti; duttile tatticamente"
+   },
+   {
+    "nome": "Kolo Muani",
+    "motivo": "Rigorista designato"
+   }
+  ],
+  "nomiNascosti": [
+   {
+    "nome": "Kelly L.",
+    "motivo": "Rendimento buono e continuo in termini di voti"
+   }
+  ]
+ },
+ {
+  "squadra": "Lazio",
+  "allenatore": "G. Gattuso",
+  "modulo": "4-3-3",
+  "attacco": 4.5,
+  "difesa": 4.0,
+  "puntiChiave": [
+   "Punta centrale riferimento principale",
+   "Gioco aggressivo, cartellini e falli elevati",
+   "Esterni di difesa propositivi"
+  ],
+  "probabileFormazione": [
+   "Mandas",
+   "Pedraza",
+   "Romagnoli",
+   "Doekhi",
+   "Marusic",
+   "Dele-Bashiru",
+   "Rovella",
+   "Taylor K.",
+   "Zaccagni",
+   "Noslin",
+   "Isaksen"
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Taylor K.",
+    "motivo": "Utile negli inserimenti richiesti dal mister; propensione alla fase offensiva"
+   },
+   {
+    "nome": "Zaccagni",
+    "motivo": "Fantasista della squadra; fulcro del gioco offensivo; rigorista designato"
+   }
+  ],
+  "nomiNascosti": [
+   {
+    "nome": "Pedraza",
+    "motivo": "Gattuso richiede molta spinta dai terzini"
+   }
+  ]
+ },
+ {
+  "squadra": "Lecce",
+  "allenatore": "E. Di Francesco",
+  "modulo": "4-3-3",
+  "attacco": 2.0,
+  "difesa": 2.5,
+  "puntiChiave": [
+   "Valorizzazione esterni d'attacco",
+   "Squadra poco prolifica per bonus",
+   "Difesa aggressiva e propensa ai cartellini"
+  ],
+  "probabileFormazione": [
+   "Falcone",
+   "Gallo",
+   "Tiago Gabriel",
+   "Siebert",
+   "Veiga D.",
+   "Gandelman",
+   "Berisha M.",
+   "Coulibaly L.",
+   "N'Dri",
+   "Geubbels",
+   "Pierotti"
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "N'Dri",
+    "motivo": "Ali fondamentali nel gioco di Di Francesco; utile nelle ripartenze"
+   },
+   {
+    "nome": "Coulibaly L.",
+    "motivo": "Duttilità tattica; fulcro del centrocampo"
+   },
+   {
+    "nome": "Geubbels",
+    "motivo": "Rigorista designato"
+   }
+  ],
+  "nomiNascosti": [
+   {
+    "nome": "Gandelman",
+    "motivo": "Può giocare in diverse posizioni del fronte offensivo"
+   }
+  ]
+ },
+ {
+  "squadra": "Milan",
+  "allenatore": "R. Amorim",
+  "modulo": "3-4-2-1",
+  "attacco": 4.5,
+  "difesa": 4.5,
+  "puntiChiave": [
+   "Trequartisti ed esterni mobili in fase offensiva",
+   "Rigidità del sistema di gioco",
+   "Dipendenza da un attaccante fisico"
+  ],
+  "probabileFormazione": [
+   "Maignan",
+   "Pavlovic",
+   "Gabbia",
+   "Gila",
+   "Bartesaghi",
+   "Modric",
+   "Rabiot",
+   "Saelemaekers",
+   "Leao",
+   "Pulisic",
+   "Ramos G."
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Pulisic",
+    "motivo": "Adattabile su tutto il fronte offensivo; fantasista della squadra"
+   },
+   {
+    "nome": "Ramos G.",
+    "motivo": "Fulcro del gioco di Amorim; titolarità solida; rigorista designato"
+   }
+  ],
+  "nomiNascosti": [
+   {
+    "nome": "Nkunku",
+    "motivo": "Adatto al gioco di Amorim"
+   }
+  ]
+ },
+ {
+  "squadra": "Monza",
+  "allenatore": "I. Juric",
+  "modulo": "3-4-2-1",
+  "attacco": 2.0,
+  "difesa": 2.0,
+  "puntiChiave": [
+   "Importanza esterni",
+   "Marcatura a tutto campo",
+   "Gioco molto aggressivo"
+  ],
+  "probabileFormazione": [
+   "Thiam",
+   "Carboni A.",
+   "Delli Carri",
+   "Kouadio",
+   "Mangas",
+   "Pessina",
+   "Akinsanmiro",
+   "Birindelli",
+   "Mota",
+   "Colpani",
+   "Cutrone"
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Mota",
+    "motivo": "Leader della squadra; svaria su tutto il fronte d'attacco"
+   },
+   {
+    "nome": "Birindelli",
+    "motivo": "Gioca su entrambe le fasce; partecipa alla manovra offensiva"
+   }
+  ],
+  "nomiNascosti": [
+   {
+    "nome": "Thiam",
+    "motivo": "Buon rapporto parate-tiri"
+   }
+  ]
+ },
+ {
+  "squadra": "Napoli",
+  "allenatore": "M. Allegri",
+  "modulo": "4-3-3",
+  "attacco": 4.5,
+  "difesa": 4.5,
+  "puntiChiave": [
+   "Solidità difensiva",
+   "Palle inattive decisive",
+   "Baricentro squadra basso"
+  ],
+  "probabileFormazione": [
+   "Meret",
+   "Spinazzola",
+   "Rrahmani",
+   "Marin R.",
+   "Di Lorenzo",
+   "McTominay",
+   "Lobotka",
+   "De Bruyne",
+   "Santos A.",
+   "Hojlund",
+   "Neres"
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Santos A.",
+    "motivo": "Prolifico nei contropiedi; bravo a sfruttare gli spazi aperti dalla difesa bassa"
+   },
+   {
+    "nome": "McTominay",
+    "motivo": "Prolifico nei piazzati; inserimenti in area avversaria"
+   },
+   {
+    "nome": "De Bruyne",
+    "motivo": "Rigorista designato"
+   }
+  ],
+  "nomiNascosti": [
+   {
+    "nome": "Olivera",
+    "motivo": "Jolly difensivo"
+   }
+  ]
+ },
+ {
+  "squadra": "Parma",
+  "allenatore": "C. Cuesta",
+  "modulo": "4-3-3",
+  "attacco": 2.0,
+  "difesa": 2.5,
+  "puntiChiave": [
+   "Solidità difensiva",
+   "Molti cross verso la punta centrale",
+   "Poca efficacia offensiva"
+  ],
+  "probabileFormazione": [
+   "Corvi",
+   "Valeri",
+   "Circati",
+   "Troilo",
+   "Delprato",
+   "Nicolussi Caviglia",
+   "Keita M.",
+   "Bernabè",
+   "Tourè E.",
+   "Pellegrino M.",
+   "Frigan"
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Bernabè",
+    "motivo": "Riferimento tecnico del centrocampo; impiegato molto in fase offensiva"
+   },
+   {
+    "nome": "Pellegrino M.",
+    "motivo": "Fulcro della fase offensiva; terminale sulle palle alte; rigorista designato"
+   }
+  ],
+  "nomiNascosti": [
+   {
+    "nome": "Delprato",
+    "motivo": "Coinvolto nella fase offensiva"
+   }
+  ]
+ },
+ {
+  "squadra": "Roma",
+  "allenatore": "G. Piero Gasperini",
+  "modulo": "3-4-2-1",
+  "attacco": 4.5,
+  "difesa": 5.0,
+  "puntiChiave": [
+   "Esterni molto offensivi",
+   "Attacco molto prolifico",
+   "Marcatura a uomo aggressiva"
+  ],
+  "probabileFormazione": [
+   "Svilar",
+   "Koulierakis",
+   "N'Dicka",
+   "Mancini",
+   "Wesley",
+   "Konè M.",
+   "Cristante",
+   "Rensch",
+   "Dybala",
+   "Soulè",
+   "Malen"
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Malen",
+    "motivo": "Recupero palla di Gasperini lo porta ad avere molti palloni puliti; rigorista designato"
+   },
+   {
+    "nome": "Wesley",
+    "motivo": "Partecipa attivamente alla manovra offensiva; esterni a tutto campo valorizzati da Gasperini"
+   }
+  ],
+  "nomiNascosti": [
+   {
+    "nome": "Cristante",
+    "motivo": "Punto fermo del centrocampo di Gasperini"
+   }
+  ]
+ },
+ {
+  "squadra": "Sassuolo",
+  "allenatore": "A. Aquilani",
+  "modulo": "4-2-3-1",
+  "attacco": 3.0,
+  "difesa": 3.0,
+  "puntiChiave": [
+   "Costruzione dal basso",
+   "Fluidità tattica tra i moduli",
+   "Buona organizzazione del fraseggio in mezzo al campo"
+  ],
+  "probabileFormazione": [
+   "Muric",
+   "Doig",
+   "Idzes",
+   "Walukiewicz",
+   "Missori",
+   "Lipani",
+   "Matic",
+   "Laurientè",
+   "Thorstvedt",
+   "Berardi",
+   "Pinamonti"
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Laurientè",
+    "motivo": "Abile in ripartenza; buon attacco della profondità"
+   },
+   {
+    "nome": "Berardi",
+    "motivo": "Riferimento della manovra offensiva; prolifico in fase realizzativa; rigorista designato"
+   }
+  ],
+  "nomiNascosti": [
+   {
+    "nome": "Matic",
+    "motivo": "Costanza nelle rotazioni e nel rendimento"
+   }
+  ]
+ },
+ {
+  "squadra": "Torino",
+  "allenatore": "I. Abate",
+  "modulo": "3-4-2-1",
+  "attacco": 3.5,
+  "difesa": 2.0,
+  "puntiChiave": [
+   "Trequartisti mobili",
+   "Pressing a tutto campo",
+   "Costruzione dal basso e palleggio"
+  ],
+  "probabileFormazione": [
+   "Paleari",
+   "Comuzzo",
+   "Coco",
+   "Ismajli",
+   "Cacciamani",
+   "Fitz-Jim",
+   "Casadei",
+   "Pedersen",
+   "Vlasic",
+   "Simeone",
+   "Oristanio"
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Simeone",
+    "motivo": "Utile nella costruzione del gioco; utile nel gioco aereo per un modulo con gli esterni"
+   },
+   {
+    "nome": "Vlasic",
+    "motivo": "Svaria su tutto il fronte offensivo; bravo a giocare tra le linee; rigorista designato"
+   }
+  ],
+  "nomiNascosti": [
+   {
+    "nome": "Oristanio",
+    "motivo": "Adatto al sistema di Abate"
+   }
+  ]
+ },
+ {
+  "squadra": "Udinese",
+  "allenatore": "K. Runjaic",
+  "modulo": "3-4-2-1",
+  "attacco": 4.0,
+  "difesa": 3.0,
+  "puntiChiave": [
+   "Contropiedi efficaci",
+   "Propensione al fallo tattico",
+   "Efficacia del gioco dipendente dall'atletismo dei giocatori"
+  ],
+  "probabileFormazione": [
+   "Okoye",
+   "Solet",
+   "Kristensen T.",
+   "Kabasele",
+   "Kamara H.",
+   "Karlstrom",
+   "Piotrowski",
+   "Vojvoda",
+   "Ekkelenkamp",
+   "Davis K.",
+   "Zaniolo"
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Davis K.",
+    "motivo": "Presenza fisica in area; bravo nelle ripartenze; rigorista designato"
+   },
+   {
+    "nome": "Ekkelenkamp",
+    "motivo": "Riferimento tecnico del centrocampo; partecipazione alla fase offensiva"
+   }
+  ],
+  "nomiNascosti": [
+   {
+    "nome": "Kristensen T.",
+    "motivo": "Caratteristiche adatte alla difesa bassa"
+   }
+  ]
+ },
+ {
+  "squadra": "Venezia",
+  "allenatore": "G. Stroppa",
+  "modulo": "3-5-2",
+  "attacco": 3.5,
+  "difesa": 2.0,
+  "puntiChiave": [
+   "Gioco costante sugli esterni",
+   "Costruzione dal basso ossessiva",
+   "Gli interpreti potrebbero faticare in Serie A"
+  ],
+  "probabileFormazione": [
+   "Stankovic F.",
+   "Haps",
+   "Bella-Kotchap",
+   "Schingtienne",
+   "Correia T.",
+   "Sohm",
+   "Busio",
+   "Moreno M.",
+   "Yeboah J.",
+   "Adams A."
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Busio",
+    "motivo": "Partecipa ad entrambe le fasi; uomo chiave nel gioco di Stroppa"
+   },
+   {
+    "nome": "Yeboah J.",
+    "motivo": "Buon attacco della profondità; bravo nel dribbling"
+   },
+   {
+    "nome": "Adams A.",
+    "motivo": "Rigorista designato"
+   }
+  ],
+  "nomiNascosti": [
+   {
+    "nome": "Perez K.",
+    "motivo": "Fulcro creativo del gioco di Stroppa"
+   }
+  ]
+ }
+]

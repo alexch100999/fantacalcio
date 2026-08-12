@@ -40,6 +40,8 @@
   <button class="tab tab-d" data-role="D">Difensori</button>
   <button class="tab tab-c" data-role="C">Centrocampisti</button>
   <button class="tab tab-a" data-role="A">Attaccanti</button>
+  <button class="tab tab-y" data-role="COPPIE">Coppie</button>
+  <button class="tab tab-z" data-role="FORMAZIONI">Formazioni</button>
   <button class="tab tab-x" data-role="COMPARE">Confronto</button>
 </nav>
 
@@ -53,6 +55,10 @@
         <label class="toggle">
           <input type="checkbox" id="only-free">
           <span>Solo liberi</span>
+        </label>
+        <label class="toggle">
+          <input type="checkbox" id="only-chiave">
+          <span>Solo chiave ★</span>
         </label>
         <button id="reset-stato" class="btn-ghost" title="Azzera tutte le marcature Libero/Preso">Nuova asta ↺</button>
       </div>
@@ -68,10 +74,45 @@
 
       <aside class="suggeriti">
         <h2>Migliori liberi <span id="suggeriti-role-label"></span></h2>
-        <p class="suggeriti-note">Ordinati per FVM. Si aggiorna da solo quando marchi un giocatore.</p>
+        <p class="suggeriti-note">Ordinati per FVM con una spinta per i giocatori ★ chiave e 💎 ad alto potenziale. Si aggiorna da solo quando marchi un giocatore.</p>
         <ol id="suggeriti-list" class="suggeriti-list"></ol>
       </aside>
     </div>
+  </section>
+
+  <!-- ===== VISTA COPPIE ===== -->
+  <section id="view-coppie" class="hidden">
+    <div class="coppie-block">
+      <h2>Coppie di portieri per calendario</h2>
+      <p class="coppie-note" id="coppie-portieri-note">Ordinate per difficoltà media combinata più bassa lungo la stagione (si gioca sempre il portiere con la partita più facile di giornata).</p>
+      <div class="table-wrap">
+        <table id="coppie-portieri-table">
+          <thead>
+            <tr>
+              <th class="col-nome">Portiere A</th><th class="col-squadra">Squadra</th>
+              <th class="col-nome">Portiere B</th><th class="col-squadra">Squadra</th>
+              <th>Diff. media</th><th>Qt.A tot.</th>
+            </tr>
+          </thead>
+          <tbody id="coppie-portieri-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="coppie-block">
+      <h2>Coppie titolare–riserva</h2>
+      <p class="coppie-note">Basate sul file gerarchie.json che mantieni tu (probabili formazioni / depth chart). Se è vuoto o non ancora compilato, non troverai risultati qui.</p>
+      <div id="coppie-gerarchie-container"></div>
+    </div>
+  </section>
+
+  <!-- ===== VISTA FORMAZIONI ===== -->
+  <section id="view-formazioni" class="hidden">
+    <div class="formazioni-toolbar">
+      <label for="formazioni-select">Squadra</label>
+      <select id="formazioni-select"></select>
+    </div>
+    <div id="formazioni-content"></div>
   </section>
 
   <!-- ===== VISTA CONFRONTO ===== -->

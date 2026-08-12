@@ -261,6 +261,27 @@ tbody tr.is-mine td { background: var(--green-soft); }
 tbody tr.is-taken td { background: var(--red-soft); opacity: 0.75; }
 .no-data { color: var(--ink-faint); font-style: italic; }
 
+.amichevoli-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--gold);
+  background: #FBF3DF;
+  border: 1px solid var(--gold-soft);
+  border-radius: 3px;
+  padding: 0 0.3rem;
+  margin-left: 0.3rem;
+  white-space: nowrap;
+}
+
+.chiave-badge {
+  display: inline-block;
+  color: var(--red);
+  font-size: 0.85rem;
+  margin-left: 0.25rem;
+  cursor: help;
+}
+
 .stato-select {
   font-family: var(--font-body);
   font-size: 0.75rem;
@@ -318,6 +339,134 @@ tbody tr.is-taken td { background: var(--red-soft); opacity: 0.75; }
 .sugg-name { flex: 1; font-weight: 600; }
 .sugg-fvm { font-family: var(--font-mono); color: var(--ink-soft); font-size: 0.8rem; }
 .suggeriti-empty { color: var(--ink-faint); font-style: italic; font-size: 0.85rem; }
+
+/* ---------- Coppie ---------- */
+.coppie-block { margin-bottom: 2.2rem; }
+.coppie-block h2 {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.2rem;
+}
+.coppie-subhead {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--ink-soft);
+  margin: 1.2rem 0 0.4rem;
+}
+.coppie-note {
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+  margin: 0 0 0.8rem;
+}
+.tab-y.active { box-shadow: 0 -3px 0 0 #6B4FA0 inset; }
+.tab-z.active { box-shadow: 0 -3px 0 0 #2F7D4F inset; }
+.ballottaggio-pct {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-faint);
+}
+
+/* ---------- Formazioni ---------- */
+.formazioni-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1.2rem;
+}
+.formazioni-toolbar label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+}
+.formazioni-toolbar select {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--white);
+  min-width: 200px;
+}
+.formazioni-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+.formazioni-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1.1rem 1.3rem;
+}
+.formazioni-card h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  margin: 0 0 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.modulo-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+  color: var(--ink-soft);
+}
+.rating-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.3rem;
+}
+.star-rating { color: var(--gold); letter-spacing: 0.05em; }
+.punti-chiave-list {
+  margin: 0.4rem 0 0;
+  padding-left: 1.2rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+.punti-chiave-list li { margin-bottom: 0.2rem; }
+
+.formazione-list { list-style: none; margin: 0; padding: 0; }
+.formazione-riga {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed var(--line);
+  font-size: 0.88rem;
+}
+.formazione-ruolo {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  background: var(--bg-alt);
+  border-radius: 3px;
+  padding: 0.05rem 0.4rem;
+  color: var(--ink-soft);
+  width: 1.6rem;
+  text-align: center;
+}
+.formazione-squadra-mini { margin-left: auto; font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-faint); }
+
+.motivo-riga {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  padding: 0.35rem 0;
+  border-bottom: 1px dashed var(--line);
+}
+.motivo-riga:last-child { border-bottom: none; }
+
+@media (max-width: 760px) {
+  .formazioni-grid { grid-template-columns: 1fr; }
+}
 
 /* ---------- Confronto ---------- */
 .compare-pickers {

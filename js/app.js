@@ -71,6 +71,7 @@ const STATE = {
   sortDir: 'desc',
   search: '',
   onlyFree: false,
+  onlyChiave: false,
 };
 
 // ---------- Persistenza stato asta ----------
@@ -102,6 +103,108 @@ async function loadPlayers() {
   data.forEach(p => STATE.byId.set(p.id, p));
 }
 
+async function loadAmichevoli() {
+  try {
+    const res = await fetch('data/amichevoli.json');
+    if (!res.ok) return;
+    const data = await res.json();
+    const byKey = new Map();
+    (data.giocatori || []).forEach(g => {
+      byKey.set(normalizeKey(g.nome), g);
+    });
+    STATE.players.forEach(p => {
+      const match = byKey.get(normalizeKey(p.nome));
+      if (match) {
+        p.golAmichevoli = match.golAmichevoli;
+        p.assistAmichevoli = match.assistAmichevoli;
+      }
+    });
+    STATE.amichevoliMeta = {
+      analizzate: data.amichevoliAnalizzate,
+      totali: data.amichevoliTotaliTrovate,
+    };
+  } catch (e) {
+    // file assente o non ancora generato: va bene, il sito funziona comunque
+  }
+}
+
+async function loadCalendario() {
+  try {
+    const res = await fetch('data/calendario.json');
+    if (!res.ok) return;
+    STATE.calendario = await res.json();
+  } catch (e) {
+    STATE.calendario = null;
+  }
+}
+
+async function loadGerarchie() {
+  try {
+    const res = await fetch('data/gerarchie.json');
+    if (!res.ok) return;
+    const data = await res.json();
+    STATE.gerarchie = data.filter(g => !g._commento && g.titolare && g.riserva);
+  } catch (e) {
+    STATE.gerarchie = [];
+  }
+}
+
+async function loadAllenatori() {
+  try {
+    const res = await fetch('data/allenatori.json');
+    if (!res.ok) return;
+    const data = await res.json();
+    STATE.allenatori = data.filter(a => a.squadra);
+
+    const bySquadra = new Map();
+    STATE.allenatori.forEach(a => bySquadra.set(a.squadra, a));
+
+    STATE.players.forEach(p => {
+      const info = bySquadra.get(p.squadra);
+      if (!info) return;
+      p.allenatore = info.allenatore || null;
+      p.modulo = info.modulo || null;
+
+      const chiave = (info.giocatoriChiave || []).find(g => normalizeKey(g.nome) === normalizeKey(p.nome));
+      if (chiave) {
+        p.giocatoreChiave = true;
+        p.motivoChiave = chiave.motivo;
+      }
+
+      const nascosto = (info.nomiNascosti || []).find(g => normalizeKey(g.nome) === normalizeKey(p.nome));
+      if (nascosto) {
+        p.nomeNascosto = true;
+        p.motivoNascosto = nascosto.motivo;
+      }
+    });
+  } catch (e) {
+    STATE.allenatori = [];
+  }
+}
+
+// ---------- Matching nomi squadra tra fonti diverse ----------
+function normalizeTeamName(name) {
+  return normalizeKey(name)
+    .replace(/^(ac |as |ss |ssc |us |hellas |uc |calcio )/, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function findCalendarioSquadra(nomeSquadra) {
+  if (!STATE.calendario || !STATE.calendario.squadre) return null;
+  const keys = Object.keys(STATE.calendario.squadre);
+  const target = normalizeTeamName(nomeSquadra);
+  let match = keys.find(k => normalizeTeamName(k) === target);
+  if (!match) {
+    match = keys.find(k => normalizeTeamName(k).includes(target) || target.includes(normalizeTeamName(k)));
+  }
+  return match ? STATE.calendario.squadre[match] : null;
+}
+
+function normalizeKey(s) {
+  return (s || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+}
+
 // ---------- Formattazione ----------
 function fmt(val, decimals) {
   if (val === null || val === undefined || val === '') {
@@ -109,6 +212,33 @@ function fmt(val, decimals) {
   }
   if (decimals) return Number(val).toFixed(decimals);
   return String(val);
+}
+
+// ---------- Badge amichevoli ----------
+function amichevoliBadge(p) {
+  const g = p.golAmichevoli || 0;
+  const a = p.assistAmichevoli || 0;
+  if (g === 0 && a === 0) return '';
+  const parts = [];
+  if (g > 0) parts.push(`${g}⚽`);
+  if (a > 0) parts.push(`${a}👟`);
+  return ` <span class="amichevoli-badge" title="Amichevoli precampionato 2026/27">${parts.join(' ')}</span>`;
+}
+
+// ---------- Badge giocatore chiave ----------
+function chiaveBadge(p) {
+  if (!p.giocatoreChiave) return '';
+  const motivo = p.motivoChiave ? ` — ${p.motivoChiave}` : '';
+  const titolo = `Giocatore chiave${p.modulo ? ` nel modulo (${p.modulo})` : ''}${motivo}`;
+  return ` <span class="chiave-badge" title="${titolo.replace(/"/g, '&quot;')}">★</span>`;
+}
+
+// ---------- Badge nome nascosto (alto potenziale) ----------
+function nascostoBadge(p) {
+  if (!p.nomeNascosto) return '';
+  const motivo = p.motivoNascosto ? ` — ${p.motivoNascosto}` : '';
+  const titolo = `Nome nascosto (alto potenziale)${motivo}`;
+  return ` <span class="nascosto-badge" title="${titolo.replace(/"/g, '&quot;')}">💎</span>`;
 }
 
 // ---------- Rendering tabella ruolo ----------
@@ -154,6 +284,9 @@ function getFilteredSorted() {
   if (STATE.onlyFree) {
     rows = rows.filter(p => getStato(p.id) === 'Libero');
   }
+  if (STATE.onlyChiave) {
+    rows = rows.filter(p => p.giocatoreChiave);
+  }
 
   const key = STATE.sortKey;
   const dir = STATE.sortDir === 'asc' ? 1 : -1;
@@ -187,6 +320,8 @@ function renderTableBody() {
       if (c.key === 'rigSegn' && c.combine) {
         const a = p.rigSegn, b = p.rigTir;
         td.innerHTML = (a === null || a === undefined) ? fmt(null) : `${a}/${b}`;
+      } else if (c.key === 'nome') {
+        td.innerHTML = fmt(p[c.key], c.decimals) + chiaveBadge(p) + nascostoBadge(p) + amichevoliBadge(p);
       } else {
         td.innerHTML = fmt(p[c.key], c.decimals);
       }
@@ -219,12 +354,20 @@ function renderTableBody() {
 // ---------- Sidebar suggerimenti ----------
 const ROLE_LABELS = { P: 'portieri', D: 'difensori', C: 'centrocampisti', A: 'attaccanti' };
 
+// ---------- Punteggio suggerimento (FVM + bonus potenziale) ----------
+function punteggioSuggerimento(p) {
+  let score = p.fvm;
+  if (p.giocatoreChiave) score *= 1.15;   // giocatore segnalato come chiave nel modulo del suo allenatore
+  if (p.nomeNascosto) score *= 1.08;      // nome ad alto potenziale secondo l'analisi tattica
+  return score;
+}
+
 function renderSuggeriti() {
   document.getElementById('suggeriti-role-label').textContent = ROLE_LABELS[STATE.currentRole];
   const list = document.getElementById('suggeriti-list');
   const free = STATE.players
     .filter(p => p.ruolo === STATE.currentRole && getStato(p.id) === 'Libero')
-    .sort((a, b) => b.fvm - a.fvm)
+    .sort((a, b) => punteggioSuggerimento(b) - punteggioSuggerimento(a))
     .slice(0, 12);
 
   list.innerHTML = '';
@@ -234,7 +377,7 @@ function renderSuggeriti() {
   }
   free.forEach(p => {
     const li = document.createElement('li');
-    li.innerHTML = `<span class="sugg-name">${p.nome} <small style="color:var(--ink-faint)">${p.squadra}</small></span>
+    li.innerHTML = `<span class="sugg-name">${p.nome}${chiaveBadge(p)}${nascostoBadge(p)} <small style="color:var(--ink-faint)">${p.squadra}</small></span>
                      <span class="sugg-fvm">${p.fvm}</span>`;
     list.appendChild(li);
   });
@@ -253,6 +396,213 @@ function renderRoleView() {
   renderTableBody();
   renderSuggeriti();
   renderChips();
+}
+
+// ---------- Coppie portieri (per calendario) ----------
+function computeGoalkeeperPairs() {
+  if (!STATE.calendario) return [];
+
+  const keepers = STATE.players.filter(p => p.ruolo === 'P');
+  const scheduleByKeeper = new Map();
+  keepers.forEach(k => {
+    const sched = findCalendarioSquadra(k.squadra);
+    if (sched) {
+      const byGiornata = new Map();
+      sched.forEach(g => { if (g.giornata) byGiornata.set(g.giornata, g.difficolta); });
+      scheduleByKeeper.set(k.id, byGiornata);
+    }
+  });
+
+  const usable = keepers.filter(k => scheduleByKeeper.has(k.id));
+  const pairs = [];
+
+  for (let i = 0; i < usable.length; i++) {
+    for (let j = i + 1; j < usable.length; j++) {
+      const a = usable[i], b = usable[j];
+      if (a.squadra === b.squadra) continue; // stessa squadra, non ha senso come coppia
+      const schedA = scheduleByKeeper.get(a.id);
+      const schedB = scheduleByKeeper.get(b.id);
+      const giornateComuni = [...schedA.keys()].filter(g => schedB.has(g));
+      if (giornateComuni.length < 20) continue; // dati insufficienti per un confronto sensato
+
+      let sommaMin = 0;
+      giornateComuni.forEach(g => {
+        sommaMin += Math.min(schedA.get(g), schedB.get(g));
+      });
+      const diffMedia = sommaMin / giornateComuni.length;
+
+      pairs.push({
+        a, b,
+        diffMedia: Math.round(diffMedia * 10) / 10,
+        qtaTot: a.qtA + b.qtA,
+        giornateAnalizzate: giornateComuni.length,
+      });
+    }
+  }
+
+  pairs.sort((x, y) => x.diffMedia - y.diffMedia);
+  return pairs.slice(0, 25);
+}
+
+function renderCoppiePortieri() {
+  const tbody = document.getElementById('coppie-portieri-tbody');
+  const note = document.getElementById('coppie-portieri-note');
+
+  if (!STATE.calendario) {
+    tbody.innerHTML = '<tr><td colspan="6" class="no-data">Calendario non ancora disponibile — esegui la GitHub Action "Aggiorna calendario e difficoltà".</td></tr>';
+    return;
+  }
+
+  const pairs = computeGoalkeeperPairs();
+  note.textContent = `Basato su ${STATE.calendario.squadre ? Object.keys(STATE.calendario.squadre).length : 0} squadre, stagione ${STATE.calendario.stagione}. Difficoltà stimata dal FVM medio della rosa avversaria — è un'approssimazione.`;
+
+  if (pairs.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="6" class="no-data">Nessuna coppia calcolabile con i dati attuali.</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = pairs.map(p => `
+    <tr>
+      <td class="col-nome">${p.a.nome}</td><td class="col-squadra">${p.a.squadra}</td>
+      <td class="col-nome">${p.b.nome}</td><td class="col-squadra">${p.b.squadra}</td>
+      <td>${p.diffMedia}</td><td>${p.qtaTot}</td>
+    </tr>
+  `).join('');
+}
+
+// ---------- Coppie titolare-riserva (da gerarchie.json) ----------
+function renderCoppieGerarchie() {
+  const container = document.getElementById('coppie-gerarchie-container');
+  const gerarchie = STATE.gerarchie || [];
+
+  if (gerarchie.length === 0) {
+    container.innerHTML = '<p class="coppie-note">Nessuna gerarchia inserita ancora in data/gerarchie.json.</p>';
+    return;
+  }
+
+  const byRuolo = { D: [], C: [], A: [] };
+  gerarchie.forEach(g => {
+    const titolare = STATE.players.find(p => normalizeKey(p.nome) === normalizeKey(g.titolare) && p.squadra === g.squadra);
+    const riserva = STATE.players.find(p => normalizeKey(p.nome) === normalizeKey(g.riserva) && p.squadra === g.squadra);
+    if (titolare && riserva && byRuolo[g.ruolo]) {
+      byRuolo[g.ruolo].push({ squadra: g.squadra, titolare, riserva, ballottaggio: g.ballottaggio });
+    }
+  });
+
+  let html = '';
+  Object.entries(ROLE_LABELS).forEach(([code, label]) => {
+    if (code === 'P' || !byRuolo[code] || byRuolo[code].length === 0) return;
+    html += `<h3 class="coppie-subhead">${label[0].toUpperCase() + label.slice(1)}</h3>
+      <div class="table-wrap"><table>
+        <thead><tr>
+          <th class="col-squadra">Squadra</th>
+          <th class="col-nome">Titolare</th><th>Qt.A</th>
+          <th class="col-nome">Riserva</th><th>Qt.A</th>
+          <th>Ballottaggio</th>
+          <th>Costo coppia</th>
+        </tr></thead>
+        <tbody>`;
+    byRuolo[code]
+      .sort((x, y) => (x.titolare.qtA + x.riserva.qtA) - (y.titolare.qtA + y.riserva.qtA))
+      .forEach(row => {
+        html += `<tr>
+          <td class="col-squadra">${row.squadra}</td>
+          <td class="col-nome">${row.titolare.nome}${chiaveBadge(row.titolare)}${nascostoBadge(row.titolare)}${amichevoliBadge(row.titolare)}</td><td>${row.titolare.qtA}</td>
+          <td class="col-nome">${row.riserva.nome}${chiaveBadge(row.riserva)}${nascostoBadge(row.riserva)}${amichevoliBadge(row.riserva)}</td><td>${row.riserva.qtA}</td>
+          <td class="ballottaggio-pct">${row.ballottaggio || ''}</td>
+          <td>${row.titolare.qtA + row.riserva.qtA}</td>
+        </tr>`;
+      });
+    html += '</tbody></table></div>';
+  });
+
+  container.innerHTML = html || '<p class="coppie-note">Le gerarchie inserite non corrispondono a nessun giocatore nel listone (controlla nomi/squadra).</p>';
+}
+
+function renderCoppieView() {
+  renderCoppiePortieri();
+  renderCoppieGerarchie();
+}
+
+// ---------- Vista Formazioni ----------
+function starRating(value) {
+  const full = Math.floor(value);
+  const half = value - full >= 0.5;
+  let html = '';
+  for (let i = 0; i < full; i++) html += '★';
+  if (half) html += '⯪';
+  for (let i = full + (half ? 1 : 0); i < 5; i++) html += '☆';
+  return `<span class="star-rating" title="${value}/5">${html}</span>`;
+}
+
+function populateFormazioniSelect() {
+  const select = document.getElementById('formazioni-select');
+  const squadre = (STATE.allenatori || []).map(a => a.squadra).sort();
+  select.innerHTML = squadre.map(s => `<option value="${s}">${s}</option>`).join('');
+}
+
+function renderFormazione(squadraSelezionata) {
+  const container = document.getElementById('formazioni-content');
+  const info = (STATE.allenatori || []).find(a => a.squadra === squadraSelezionata);
+
+  if (!info) {
+    container.innerHTML = '<p class="coppie-note">Nessun dato disponibile per questa squadra.</p>';
+    return;
+  }
+
+  const roleOrder = { P: 0, D: 1, C: 2, A: 3 };
+  const formazionePlayers = (info.probabileFormazione || [])
+    .map(nome => STATE.players.find(p => p.squadra === squadraSelezionata && normalizeKey(p.nome) === normalizeKey(nome)))
+    .filter(Boolean)
+    .sort((a, b) => (roleOrder[a.ruolo] ?? 9) - (roleOrder[b.ruolo] ?? 9));
+
+  const formazioneHtml = formazionePlayers.map(p => `
+    <li class="formazione-riga">
+      <span class="formazione-ruolo">${p.ruolo}</span>
+      <span class="col-nome">${p.nome}${chiaveBadge(p)}${nascostoBadge(p)}</span>
+      <span class="formazione-squadra-mini">${p.qtA} Qt.A</span>
+    </li>`).join('');
+
+  const puntiChiaveHtml = (info.puntiChiave || []).map(pc => `<li>${pc}</li>`).join('');
+
+  const chiaveHtml = (info.giocatoriChiave || []).map(g => `
+    <div class="motivo-riga"><strong>${g.nome}</strong> — ${g.motivo}</div>`).join('') || '<p class="coppie-note">Nessuno segnalato.</p>';
+
+  const nascostiHtml = (info.nomiNascosti || []).map(g => `
+    <div class="motivo-riga">💎 <strong>${g.nome}</strong> — ${g.motivo}</div>`).join('') || '<p class="coppie-note">Nessuno segnalato.</p>';
+
+  container.innerHTML = `
+    <div class="formazioni-grid">
+      <div class="formazioni-card">
+        <h2>${info.allenatore} <span class="modulo-tag">${info.modulo}</span></h2>
+        <div class="rating-row"><span>Attacco</span> ${starRating(info.attacco)}</div>
+        <div class="rating-row"><span>Difesa</span> ${starRating(info.difesa)}</div>
+        <h3 class="coppie-subhead">Punti chiave</h3>
+        <ul class="punti-chiave-list">${puntiChiaveHtml}</ul>
+      </div>
+
+      <div class="formazioni-card">
+        <h3 class="coppie-subhead">Probabile formazione</h3>
+        <ul class="formazione-list">${formazioneHtml}</ul>
+      </div>
+
+      <div class="formazioni-card">
+        <h3 class="coppie-subhead">★ Giocatori chiave e perché</h3>
+        ${chiaveHtml}
+      </div>
+
+      <div class="formazioni-card">
+        <h3 class="coppie-subhead">💎 Nomi nascosti (alto potenziale)</h3>
+        ${nascostiHtml}
+      </div>
+    </div>`;
+}
+
+function initFormazioni() {
+  populateFormazioniSelect();
+  const select = document.getElementById('formazioni-select');
+  select.addEventListener('change', () => renderFormazione(select.value));
+  if (select.options.length > 0) renderFormazione(select.options[0].value);
 }
 
 // ---------- Vista Confronto ----------
@@ -277,6 +627,10 @@ function findPlayerByInputValue(val) {
 const COMPARE_ROWS = [
   { key: 'ruoloLabel', label: 'Ruolo' },
   { key: 'squadra', label: 'Squadra' },
+  { key: 'allenatore', label: 'Allenatore', text: true },
+  { key: 'modulo', label: 'Modulo', text: true },
+  { key: 'giocatoreChiave', label: 'Chiave nel modulo', bool: true },
+  { key: 'nomeNascosto', label: 'Nome nascosto 💎', bool: true },
   { key: 'qtA', label: 'Qt.A', lowerBetter: false },
   { key: 'fvm', label: 'FVM', better: true },
   { key: 'mv', label: 'Media voto', better: true, decimals: 2 },
@@ -288,7 +642,15 @@ const COMPARE_ROWS = [
   { key: 'golSub', label: 'Gol subiti', better: false },
   { key: 'amm', label: 'Ammonizioni', better: false },
   { key: 'esp', label: 'Espulsioni', better: false },
+  { key: 'golAmichevoli', label: 'Gol amichevoli', better: true },
+  { key: 'assistAmichevoli', label: 'Assist amichevoli', better: true },
 ];
+
+function fmtCompareVal(row, val) {
+  if (row.bool) return val ? '★ sì' : 'no';
+  if (row.text) return val || '<span class="no-data">—</span>';
+  return fmt(val, row.decimals);
+}
 
 function renderCompare() {
   const a = findPlayerByInputValue(document.getElementById('pick-a').value);
@@ -309,10 +671,14 @@ function renderCompare() {
       aCls = aWins ? 'win' : '';
       bCls = !aWins ? 'win' : '';
     }
+    if (r.bool && av !== bv) {
+      aCls = av ? 'win' : '';
+      bCls = bv ? 'win' : '';
+    }
     rows += `<tr>
       <td class="label">${r.label}</td>
-      <td class="val ${aCls}">${fmt(av, r.decimals)}</td>
-      <td class="val ${bCls}">${fmt(bv, r.decimals)}</td>
+      <td class="val ${aCls}">${fmtCompareVal(r, av)}</td>
+      <td class="val ${bCls}">${fmtCompareVal(r, bv)}</td>
     </tr>`;
   });
 
@@ -332,11 +698,19 @@ function initTabs() {
       document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const role = btn.dataset.role;
+      document.getElementById('view-role').classList.add('hidden');
+      document.getElementById('view-compare').classList.add('hidden');
+      document.getElementById('view-coppie').classList.add('hidden');
+      document.getElementById('view-formazioni').classList.add('hidden');
+
       if (role === 'COMPARE') {
-        document.getElementById('view-role').classList.add('hidden');
         document.getElementById('view-compare').classList.remove('hidden');
+      } else if (role === 'COPPIE') {
+        document.getElementById('view-coppie').classList.remove('hidden');
+        renderCoppieView();
+      } else if (role === 'FORMAZIONI') {
+        document.getElementById('view-formazioni').classList.remove('hidden');
       } else {
-        document.getElementById('view-compare').classList.add('hidden');
         document.getElementById('view-role').classList.remove('hidden');
         STATE.currentRole = role;
         STATE.sortKey = 'fvm';
@@ -356,6 +730,10 @@ function initToolbar() {
     STATE.onlyFree = e.target.checked;
     renderTableBody();
   });
+  document.getElementById('only-chiave').addEventListener('change', (e) => {
+    STATE.onlyChiave = e.target.checked;
+    renderTableBody();
+  });
   document.getElementById('reset-stato').addEventListener('click', () => {
     if (confirm('Azzerare tutte le marcature Libero/Preso e ricominciare una nuova asta?')) {
       STATE.stato = {};
@@ -373,9 +751,14 @@ function initCompare() {
 async function main() {
   loadStato();
   await loadPlayers();
+  await loadAmichevoli();
+  await loadCalendario();
+  await loadGerarchie();
+  await loadAllenatori();
   initTabs();
   initToolbar();
   initCompare();
+  initFormazioni();
   populateDatalist();
   renderRoleView();
 }

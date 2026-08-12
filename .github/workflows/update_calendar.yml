@@ -1,0 +1,43 @@
+name: Aggiorna calendario e difficoltà
+
+# Solo esecuzione manuale: il calendario di Serie A cambia raramente (giusto
+# in caso di rinvii/recuperi), non serve schedularla. Rilanciala se ci sono
+# stati cambi di date importanti o a inizio stagione.
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update-calendar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Aggiorna data/calendario.json
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        run: python3 scripts/update_calendar.py
+
+      - name: Commit e push se ci sono cambiamenti
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/calendario.json
+          if git diff --cached --quiet; then
+            echo "Nessuna modifica, salto il commit."
+          else
+            git commit -m "Aggiornamento calendario $(date -u +'%Y-%m-%d')"
+            git push
+          fi

@@ -1,0 +1,422 @@
+[
+ {
+  "squadra": "Atalanta",
+  "ruolo": "A",
+  "titolare": "Scamacca",
+  "riserva": "Krstovic",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Atalanta",
+  "ruolo": "D",
+  "titolare": "Zappacosta",
+  "riserva": "Bellanova",
+  "ballottaggio": "55% - 45%"
+ },
+ {
+  "squadra": "Atalanta",
+  "ruolo": "C",
+  "titolare": "Samardzic",
+  "riserva": "Pasalic",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Atalanta",
+  "ruolo": "C",
+  "titolare": "Gaetano",
+  "riserva": "De Roon",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Atalanta",
+  "ruolo": "D",
+  "titolare": "Kolasinac",
+  "riserva": "Hien",
+  "ballottaggio": "55% - 45%"
+ },
+ {
+  "squadra": "Atalanta",
+  "ruolo": "D",
+  "titolare": "Bernasconi",
+  "riserva": "Ahanor",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Bologna",
+  "ruolo": "D",
+  "titolare": "Vitik",
+  "riserva": "Heggem",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Bologna",
+  "ruolo": "D",
+  "titolare": "Zortea",
+  "riserva": "Holm",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Bologna",
+  "ruolo": "C",
+  "titolare": "Bernardeschi",
+  "riserva": "Odgaard",
+  "ballottaggio": "60% - 40%"
+ },
+ {
+  "squadra": "Bologna",
+  "ruolo": "C",
+  "titolare": "Pobega",
+  "riserva": "Moro N.",
+  "ballottaggio": "55% - 45%"
+ },
+ {
+  "squadra": "Cagliari",
+  "ruolo": "D",
+  "titolare": "Mina",
+  "riserva": "Deiola",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Cagliari",
+  "ruolo": "A",
+  "titolare": "Borrelli",
+  "riserva": "Mendy P.",
+  "ballottaggio": "55% - 45%"
+ },
+ {
+  "squadra": "Cagliari",
+  "ruolo": "D",
+  "titolare": "Zè Pedro",
+  "riserva": "Zappa",
+  "ballottaggio": "55% - 45%"
+ },
+ {
+  "squadra": "Como",
+  "ruolo": "C",
+  "titolare": "Perrone",
+  "riserva": "Milla",
+  "ballottaggio": "60% - 40%"
+ },
+ {
+  "squadra": "Como",
+  "ruolo": "D",
+  "titolare": "Couto",
+  "riserva": "Smolcic I.",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Como",
+  "ruolo": "D",
+  "titolare": "Ramon",
+  "riserva": "Kempf",
+  "ballottaggio": "55% - 45%"
+ },
+ {
+  "squadra": "Como",
+  "ruolo": "A",
+  "titolare": "Diao",
+  "riserva": "Rodriguez Je.",
+  "ballottaggio": "60% - 40%"
+ },
+ {
+  "squadra": "Como",
+  "ruolo": "D",
+  "titolare": "Valle",
+  "riserva": "Kaiki",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Fiorentina",
+  "ruolo": "D",
+  "titolare": "Jimenez A.",
+  "riserva": "Joao Mario",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Fiorentina",
+  "ruolo": "C",
+  "titolare": "Ndour",
+  "riserva": "Gudmundsson A.",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Fiorentina",
+  "ruolo": "D",
+  "titolare": "Viery",
+  "riserva": "Ranieri L.",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Frosinone",
+  "ruolo": "C",
+  "titolare": "El Azzouzi A.",
+  "riserva": "Gelli F.",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Frosinone",
+  "ruolo": "C",
+  "titolare": "Zerbin",
+  "riserva": "Kvernadze",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Frosinone",
+  "ruolo": "D",
+  "titolare": "Monterisi",
+  "riserva": "Calvani",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Frosinone",
+  "ruolo": "C",
+  "titolare": "Koutsoupias",
+  "riserva": "Hasa",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Genoa",
+  "ruolo": "A",
+  "titolare": "Vitinha O.",
+  "riserva": "Meichtry",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Genoa",
+  "ruolo": "D",
+  "titolare": "Mitaj",
+  "riserva": "Ellertsson",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Genoa",
+  "ruolo": "C",
+  "titolare": "Baldanzi",
+  "riserva": "Traorè Hj.",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Inter",
+  "ruolo": "C",
+  "titolare": "Zielinski",
+  "riserva": "Sucic P.",
+  "ballottaggio": "55% - 45%"
+ },
+ {
+  "squadra": "Inter",
+  "ruolo": "C",
+  "titolare": "Diouf",
+  "riserva": "Luis Henrique",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Inter",
+  "ruolo": "D",
+  "titolare": "Stones",
+  "riserva": "Bisseck",
+  "ballottaggio": "55% - 45%"
+ },
+ {
+  "squadra": "Juventus",
+  "ruolo": "C",
+  "titolare": "Alajbegovic",
+  "riserva": "Conceicao",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Lazio",
+  "ruolo": "C",
+  "titolare": "Rovella",
+  "riserva": "Cataldi",
+  "ballottaggio": "55% - 45%"
+ },
+ {
+  "squadra": "Lazio",
+  "ruolo": "C",
+  "titolare": "Isaksen",
+  "riserva": "Cancellieri",
+  "ballottaggio": "60% - 40%"
+ },
+ {
+  "squadra": "Lazio",
+  "ruolo": "D",
+  "titolare": "Pedraza",
+  "riserva": "Tavares N.",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Lazio",
+  "ruolo": "D",
+  "titolare": "Romagnoli",
+  "riserva": "Provstgaard",
+  "ballottaggio": "60% - 40%"
+ },
+ {
+  "squadra": "Lecce",
+  "ruolo": "C",
+  "titolare": "Berisha M.",
+  "riserva": "Ngom",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Lecce",
+  "ruolo": "A",
+  "titolare": "Geubbels",
+  "riserva": "Stulic",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Milan",
+  "ruolo": "A",
+  "titolare": "Leao",
+  "riserva": "Nkunku",
+  "ballottaggio": "55% - 45%"
+ },
+ {
+  "squadra": "Monza",
+  "ruolo": "A",
+  "titolare": "Cutrone",
+  "riserva": "Petagna",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Monza",
+  "ruolo": "A",
+  "titolare": "Mota",
+  "riserva": "Ciurria",
+  "ballottaggio": "55% - 45%"
+ },
+ {
+  "squadra": "Monza",
+  "ruolo": "C",
+  "titolare": "Colpani",
+  "riserva": "Ciurria",
+  "ballottaggio": "55% - 45%"
+ },
+ {
+  "squadra": "Monza",
+  "ruolo": "C",
+  "titolare": "Akinsanmiro",
+  "riserva": "Colombo L.",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Napoli",
+  "ruolo": "A",
+  "titolare": "Santos A.",
+  "riserva": "Politano",
+  "ballottaggio": "55% - 45%"
+ },
+ {
+  "squadra": "Napoli",
+  "ruolo": "D",
+  "titolare": "Marin R.",
+  "riserva": "Olivera",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Parma",
+  "ruolo": "C",
+  "titolare": "Nicolussi Caviglia",
+  "riserva": "Sorensen O.",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Parma",
+  "ruolo": "A",
+  "titolare": "Tourè E.",
+  "riserva": "Diallo O.",
+  "ballottaggio": "55% - 45%"
+ },
+ {
+  "squadra": "Parma",
+  "ruolo": "A",
+  "titolare": "Frigan",
+  "riserva": "Ondrejka",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Roma",
+  "ruolo": "D",
+  "titolare": "Koulierakis",
+  "riserva": "Hermoso",
+  "ballottaggio": "55% - 45%"
+ },
+ {
+  "squadra": "Roma",
+  "ruolo": "A",
+  "titolare": "Dybala",
+  "riserva": "Castro S.",
+  "ballottaggio": "55% - 45%"
+ },
+ {
+  "squadra": "Roma",
+  "ruolo": "A",
+  "titolare": "Soulè",
+  "riserva": "Pellegrini Lo.",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Sassuolo",
+  "ruolo": "D",
+  "titolare": "Walukiewicz",
+  "riserva": "Candè",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Sassuolo",
+  "ruolo": "C",
+  "titolare": "Lipani",
+  "riserva": "Konè I.",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Sassuolo",
+  "ruolo": "A",
+  "titolare": "Pinamonti",
+  "riserva": "Bowie",
+  "ballottaggio": "60% - 40%"
+ },
+ {
+  "squadra": "Torino",
+  "ruolo": "C",
+  "titolare": "Oristanio",
+  "riserva": "Adams C.",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Torino",
+  "ruolo": "C",
+  "titolare": "Fitz-Jim",
+  "riserva": "Gineitis",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Torino",
+  "ruolo": "D",
+  "titolare": "Comuzzo",
+  "riserva": "Comert",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Udinese",
+  "ruolo": "C",
+  "titolare": "Piotrowski",
+  "riserva": "Unai Gomez",
+  "ballottaggio": "55% - 45%"
+ },
+ {
+  "squadra": "Venezia",
+  "ruolo": "D",
+  "titolare": "Correia T.",
+  "riserva": "Hainaut",
+  "ballottaggio": "51% - 49%"
+ },
+ {
+  "squadra": "Venezia",
+  "ruolo": "A",
+  "titolare": "Adams A.",
+  "riserva": "Rrahmani Al.",
+  "ballottaggio": "55% - 45%"
+ }
+]
