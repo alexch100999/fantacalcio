@@ -1,0 +1,50 @@
+name: Aggiorna statistiche amichevoli
+
+# Solo esecuzione manuale (non schedulata): le amichevoli si accumulano nel
+# tempo tramite la cache in data/_friendlies_cache.json, quindi lancialo
+# quando vuoi costruire/aggiornare la copertura, anche più giorni di fila,
+# senza sprecare le chiamate già usate sulle partite già analizzate.
+
+on:
+  workflow_dispatch:
+    inputs:
+      max_calls:
+        description: "Tetto di chiamate API per questa esecuzione"
+        required: false
+        default: "80"
+
+permissions:
+  contents: write
+
+jobs:
+  update-friendlies:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Aggiorna data/amichevoli.json
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+          MAX_CALLS: ${{ github.event.inputs.max_calls }}
+        run: python3 scripts/update_friendlies.py
+
+      - name: Commit e push se ci sono cambiamenti
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/amichevoli.json data/_friendlies_cache.json
+          if git diff --cached --quiet; then
+            echo "Nessuna modifica, salto il commit."
+          else
+            git commit -m "Aggiornamento amichevoli $(date -u +'%Y-%m-%d %H:%M')"
+            git push
+          fi
